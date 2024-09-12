@@ -8,7 +8,7 @@ buildscript {
         classpath 'com.palantir.baseline:gradle-baseline-java:5.64.0'
         classpath 'com.palantir.gradle.externalpublish:gradle-external-publish-plugin:1.17.0'
         classpath 'com.palantir.gradle.failure-reports:gradle-failure-reports:1.11.0'
-        classpath 'com.palantir.gradle.jdks:gradle-jdks:0.45.0'
+        classpath 'com.palantir.gradle.jdks:gradle-jdks:0.47.0'
         classpath 'com.palantir.gradle.jdkslatest:gradle-jdks-latest:0.15.0'
         classpath 'com.palantir.javaformat:gradle-palantir-java-format:2.50.0'
         classpath 'gradle.plugin.org.inferred:gradle-processors:3.7.0'
@@ -35,6 +35,7 @@ apply plugin: 'com.palantir.baseline-error-prone'
 apply plugin: 'com.palantir.baseline-idea'
 apply plugin: 'com.palantir.external-publish-jar'
 apply plugin: 'com.palantir.failure-reports'
+apply plugin: 'com.palantir.jdks'
 apply plugin: 'com.palantir.jdks.latest'
 apply plugin: 'com.palantir.baseline-java-versions'
 
@@ -136,4 +137,8 @@ if (hasProperty('buildScan')) {
 javaVersions {
     libraryTarget = 11
     runtime = 21
+}
+
+jdks {
+    daemonTarget = 17
 }
